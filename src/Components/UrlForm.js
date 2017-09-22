@@ -32,7 +32,7 @@ class UrlForm extends Component {
     const { value } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Field onChange={this.handleChange} control={TextArea} label='Image URL Form' placeholder='Copy and Paste an Image URL' />
+        <Form.Field onChange={this.handleChange} control={Input} label='Image URL Form' placeholder='Copy and Paste an Image URL' width={6}/>
         <Form.Field control={Button}>Submit</Form.Field>
       </Form>
     )

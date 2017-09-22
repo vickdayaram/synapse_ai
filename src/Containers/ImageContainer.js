@@ -1,31 +1,15 @@
 import React, { Component } from 'react'
 import ImageComponent from '../Components/ImageComponent'
 import UrlForm from '../Components/UrlForm'
+import { aiPredict } from '../ApiAdapter'
 
 class ImageContainer extends Component {
-
-  constructor(){
-    super()
-    this.state = {
-      url: ""
-    }
-  }
-
-  componentWillMount(){
-
-  }
-
-  handleSubmit = (url) => {
-    this.setState({
-      url: url
-    })
-  }
 
   render() {
     return (
       <div >
-        < UrlForm handleSubmit={this.handleSubmit}/>
-        < ImageComponent url={this.state.url}/>
+        < UrlForm handleSubmit={this.props.handleSubmit}/>
+        < ImageComponent url={this.props.url} />
       </div>
     );
   }
