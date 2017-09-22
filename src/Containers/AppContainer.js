@@ -10,16 +10,24 @@ class AppContainer extends Component {
   constructor(){
     super()
     this.state = {
-      url: ""
+      url: "",
+      predictions: []
     }
   }
-
 
   handleSubmit = (url) => {
     this.setState({
       url: url
     })
-    aiPredict(url)
+    aiPredict(url, this.findData)
+  }
+
+  findData = (json) => {
+    let predictions = json.outputs[0].data.concepts
+    this.setState({
+      predictions: predictions
+    })
+    debugger
   }
 
   render() {
@@ -27,7 +35,7 @@ class AppContainer extends Component {
       <div >
         < Nav />
         < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
-        < AiPredictionsContainer />
+        < AiPredictionsContainer predictions={this.state.predictions}/>
       </div>
     );
   }
