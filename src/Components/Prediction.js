@@ -4,9 +4,7 @@ import { Card } from 'semantic-ui-react'
 const Prediction = (props) => (
     <Card>
       <Card.Content>
-        <Card.Header>Word</Card.Header>
-        <Card.Meta>A-I</Card.Meta>
-        <Card.Description>{props.prediction.name}</Card.Description>
+        <Card.Header>{props.prediction.name.toUpperCase()}</Card.Header>
       </Card.Content>
     </Card>
 )

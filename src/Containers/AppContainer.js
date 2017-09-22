@@ -4,6 +4,7 @@ import SketchContainer from './SketchContainer'
 import ImageContainer from './ImageContainer'
 import { aiPredict } from '../ApiAdapter'
 import AiPredictionsContainer from './AiPredictionsContainer'
+import { Grid } from 'semantic-ui-react'
 
 class AppContainer extends Component {
 
@@ -27,15 +28,24 @@ class AppContainer extends Component {
     this.setState({
       predictions: predictions
     })
-    debugger
   }
 
   render() {
     return (
       <div >
         < Nav />
-        < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
-        < AiPredictionsContainer predictions={this.state.predictions}/>
+        <div className="main">
+        <Grid divided='vertically'>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
+            </Grid.Column>
+            <Grid.Column>
+              < AiPredictionsContainer predictions={this.state.predictions}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        </div>
       </div>
     );
   }
