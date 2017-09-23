@@ -11,8 +11,7 @@ class ImageComponent extends Component {
   render() {
     return (
       <div >
-      <Image src={this.props.url} size='large' wrapped />
-
+        <Image src={this.props.url} size='large' wrapped />
       </div>
     );
   }

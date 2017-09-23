@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Checkbox, Form, Input } from 'semantic-ui-react'
+import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 
-class UrlForm extends Component {
+class UserInputComponent extends Component {
   constructor(){
     super()
     this.state = {
-      url: ""
+      guess: ""
     }
   }
 
@@ -13,13 +13,16 @@ class UrlForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    let url = this.state.url
-    this.props.handleSubmit(url)
+    let guess = this.state.guess
+    this.props.handleSubmit(guess)
+    this.setState({
+      guess: ""
+    })
   }
 
   handleChange = (event) => {
     this.setState({
-      url: event.target.value
+      guess: event.target.value
     })
   }
 
@@ -27,11 +30,11 @@ class UrlForm extends Component {
     const { value } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Field onChange={this.handleChange} control={Input} label='Image URL Form' placeholder='Copy and Paste an Image URL' width={6}/>
+        <Form.Field onChange={this.handleChange} value={this.state.guess} control={Input} label='Enter Your Guess!' placeholder='Guess' width={6}/>
         <Form.Field control={Button}>Submit</Form.Field>
       </Form>
     )
   }
 }
 
-export default UrlForm
+export default UserInputComponent

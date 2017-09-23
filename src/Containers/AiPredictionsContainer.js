@@ -9,8 +9,8 @@ class AiPredictionsContainer extends Component {
     return (
       <div >
         <Card.Group>
-        {this.props.predictions.length > 0 ?
-          this.props.predictions.map((prediction) => < Prediction prediction={prediction} />)
+        {this.props.aiPredictions.length > 0 ?
+          this.props.aiPredictions.map((prediction) => < Prediction prediction={prediction} />)
           :
           null
         }

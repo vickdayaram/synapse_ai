@@ -5,6 +5,7 @@ import ImageContainer from './ImageContainer'
 import { aiPredict } from '../ApiAdapter'
 import AiPredictionsContainer from './AiPredictionsContainer'
 import { Grid } from 'semantic-ui-react'
+import UserInputContainer from './UserInputContainer'
 
 class AppContainer extends Component {
 
@@ -12,7 +13,10 @@ class AppContainer extends Component {
     super()
     this.state = {
       url: "",
-      predictions: []
+      aiPredictions: [],
+      human: [],
+      count: 0,
+      synapseAi: false
     }
   }
 
@@ -24,10 +28,40 @@ class AppContainer extends Component {
   }
 
   findData = (json) => {
-    let predictions = json.outputs[0].data.concepts
+    let aiPredictions = json.outputs[0].data.concepts
     this.setState({
-      predictions: predictions
+      aiPredictions: aiPredictions
     })
+  }
+
+  handleGuess = (guess) => {
+    let aiPredictions = this.state.aiPredictions
+    let count = 0
+    aiPredictions.forEach((aP) => {
+      if(aP.name === guess){
+      aP["app_id"] = "found"
+      count = 1
+      }
+    })
+    if(count = 1){
+      this.setState({
+        aiPredictions: aiPredictions,
+        count: ++this.state.count
+      })
+    }
+    this.checkForWin()
+  }
+
+  checkForWin = () => {
+    if(this.state.count === 20){
+      this.setState({
+        synapseAi: true
+      })
+    }
+  }
+
+  renderWinModal = () => {
+
   }
 
   render() {
@@ -39,9 +73,10 @@ class AppContainer extends Component {
           <Grid.Row columns={2}>
             <Grid.Column>
               < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
+              < UserInputContainer handleSubmit={this.handleGuess} />
             </Grid.Column>
             <Grid.Column>
-              < AiPredictionsContainer predictions={this.state.predictions}/>
+              < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>
