@@ -5,7 +5,6 @@ class ImageComponent extends Component {
 
   constructor(){
     super()
-
   }
 
   render() {

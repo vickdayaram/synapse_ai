@@ -9,8 +9,6 @@ class UrlForm extends Component {
     }
   }
 
-  handleChange = (e, { value }) => this.setState({ value })
-
   handleSubmit = (event) => {
     event.preventDefault()
     let url = this.state.url
@@ -24,7 +22,6 @@ class UrlForm extends Component {
   }
 
   render() {
-    const { value } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Field onChange={this.handleChange} control={Input} label='Image URL Form' placeholder='Copy and Paste an Image URL' width={6}/>

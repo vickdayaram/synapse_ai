@@ -6,6 +6,7 @@ import { aiPredict } from '../ApiAdapter'
 import AiPredictionsContainer from './AiPredictionsContainer'
 import { Grid } from 'semantic-ui-react'
 import UserInputContainer from './UserInputContainer'
+import WinModal from '../Modals/WinModal'
 
 class AppContainer extends Component {
 
@@ -28,6 +29,7 @@ class AppContainer extends Component {
   }
 
   findData = (json) => {
+    console.log(json)
     let aiPredictions = json.outputs[0].data.concepts
     this.setState({
       aiPredictions: aiPredictions
@@ -60,13 +62,22 @@ class AppContainer extends Component {
     }
   }
 
-  renderWinModal = () => {
-
+  handleReset = () => {
+    this.setState({
+      url: "",
+      aiPredictions: [],
+      human: [],
+      count: 0,
+      synapseAi: false
+    })
   }
 
   render() {
     return (
       <div >
+        {this.state.synapseAi ?
+        < WinModal handleReset={this.handleReset}/> :
+         null}
         < Nav />
         <div className="main">
         <Grid divided='vertically'>
