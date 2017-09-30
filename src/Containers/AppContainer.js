@@ -74,8 +74,11 @@ class AppContainer extends Component {
   }
 
   iAmNotaMachine = () => {
-    console.log("here")
-    this.state.aiPredictions.forEach((aP) => { aP["app_id"] = "found"})
+    let aiPredictions = this.state.aiPredictions
+    aiPredictions.forEach((aP) => { aP["app_id"] = "found"})
+    this.setState({
+      aiPredictions: aiPredictions
+    })
   }
 
   render() {
