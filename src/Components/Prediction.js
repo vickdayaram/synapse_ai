@@ -7,7 +7,7 @@ const Prediction = (props) => (
         {props.prediction["app_id"] === "main" ?
         <Card.Header> {"    "} </Card.Header>
         :
-        <Card.Header>{props.prediction.name.toUpperCase()}</Card.Header>
+        <Card.Header textAlign="center">{props.prediction.name.toUpperCase()}</Card.Header>
         }
       </Card.Content>
     </Card>

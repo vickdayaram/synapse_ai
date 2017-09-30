@@ -30,7 +30,7 @@ class AppContainer extends Component {
 
   findData = (json) => {
     console.log(json)
-    let aiPredictions = json.outputs[0].data.concepts
+    let aiPredictions = json.outputs[0].data.concepts.slice(0, 10)
     this.setState({
       aiPredictions: aiPredictions
     })
