@@ -92,7 +92,7 @@ class AppContainer extends Component {
         <div className="main">
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
-            <Grid.Column>
+            <Grid.Column width={6}>
               < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
               {this.state.displayUserInput ?
                 < UserInputContainer handleSubmit={this.handleGuess} iAmNotaMachine={this.iAmNotaMachine}/>
@@ -100,7 +100,7 @@ class AppContainer extends Component {
                 null
               }
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column width={10}>
               < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>
             </Grid.Column>
           </Grid.Row>
