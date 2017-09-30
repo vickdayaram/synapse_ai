@@ -17,19 +17,20 @@ class AppContainer extends Component {
       aiPredictions: [],
       human: [],
       count: 0,
-      synapseAi: false
+      synapseAi: false,
+      displayUserInput: false
     }
   }
 
   handleSubmit = (url) => {
     this.setState({
-      url: url
+      url: url,
+      displayUserInput: true
     })
     aiPredict(url, this.findData)
   }
 
   findData = (json) => {
-    console.log(json)
     let aiPredictions = json.outputs[0].data.concepts.slice(0, 10)
     this.setState({
       aiPredictions: aiPredictions
@@ -93,7 +94,11 @@ class AppContainer extends Component {
           <Grid.Row columns={2}>
             <Grid.Column>
               < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
-              < UserInputContainer handleSubmit={this.handleGuess} iAmNotaMachine={this.iAmNotaMachine} />
+              {this.state.displayUserInput ?
+                < UserInputContainer handleSubmit={this.handleGuess} iAmNotaMachine={this.iAmNotaMachine}/>
+                :
+                null
+              }
             </Grid.Column>
             <Grid.Column>
               < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>
