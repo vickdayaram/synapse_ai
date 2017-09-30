@@ -7,7 +7,7 @@ class UserInputContainer extends Component {
   render() {
     return (
       <div >
-        < UserInputComponent handleSubmit={this.props.handleSubmit} />
+        < UserInputComponent handleSubmit={this.props.handleSubmit} iAmNotaMachine={this.props.iAmNotaMachine} />
       </div>
     );
   }

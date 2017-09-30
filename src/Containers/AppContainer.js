@@ -73,6 +73,11 @@ class AppContainer extends Component {
     })
   }
 
+  iAmNotaMachine = () => {
+    console.log("here")
+    this.state.aiPredictions.forEach((aP) => { aP["app_id"] = "found"})
+  }
+
   render() {
     return (
       <div >
@@ -85,7 +90,7 @@ class AppContainer extends Component {
           <Grid.Row columns={2}>
             <Grid.Column>
               < ImageContainer handleSubmit={this.handleSubmit} url={this.state.url}/>
-              < UserInputContainer handleSubmit={this.handleGuess} />
+              < UserInputContainer handleSubmit={this.handleGuess} iAmNotaMachine={this.iAmNotaMachine} />
             </Grid.Column>
             <Grid.Column>
               < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>

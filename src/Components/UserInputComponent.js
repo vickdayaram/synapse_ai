@@ -26,13 +26,20 @@ class UserInputComponent extends Component {
     })
   }
 
+  handleNotMachine = () => {
+    this.props.iAmNotaMachine()
+  }
+
   render() {
     const { value } = this.state
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Field onChange={this.handleChange} value={this.state.guess} control={Input} label='Enter Your Guess!' placeholder='Guess' width={6}/>
-        <Form.Field control={Button}>Submit</Form.Field>
-      </Form>
+      <div>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field onChange={this.handleChange} value={this.state.guess} control={Input} label='Enter Your Guess!' placeholder='Guess' width={6}/>
+          <Form.Field control={Button}>Submit</Form.Field>
+        </Form>
+        <Button onClick={this.handleNotMachine}> I am not a Machine </Button>
+      </div>
     )
   }
 }
