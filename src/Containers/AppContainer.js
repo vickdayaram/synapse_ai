@@ -38,19 +38,20 @@ class AppContainer extends Component {
 
   handleGuess = (guess) => {
     let aiPredictions = this.state.aiPredictions
-    let count = 0
+    let guessedRight = false
     aiPredictions.forEach((aP) => {
       if(aP.name === guess){
       aP["app_id"] = "found"
-      count = 1
+      guessedRight = true
       }
     })
-    if(count = 1){
+    if(guessedRight){
       this.setState({
         aiPredictions: aiPredictions,
         count: ++this.state.count
       })
     }
+    guessedRight = false
     this.checkForWin()
   }
 
