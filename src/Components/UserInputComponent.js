@@ -35,7 +35,7 @@ class UserInputComponent extends Component {
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Field onChange={this.handleChange} value={this.state.guess} control={Input} label='Enter Your Guess!' placeholder='Guess' width={6}/>
+          <Form.Field onChange={this.handleChange} value={this.state.guess} control={Input} label='Enter Your Guess!' placeholder='Guess' width={16}/>
           <Form.Field control={Button}>Click or Press enter to Submit</Form.Field>
         </Form>
         <Button positive size="massive" onClick={this.handleNotMachine}> I am not a Machine </Button>
