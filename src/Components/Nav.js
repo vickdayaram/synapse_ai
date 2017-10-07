@@ -15,6 +15,7 @@ export default class Nav extends Component {
           name='editorials'
           active={activeItem === 'editorials'}
           onClick={this.handleItemClick}
+          className="synapseAi"
         >
           Synapse-AI
         </Menu.Item>
