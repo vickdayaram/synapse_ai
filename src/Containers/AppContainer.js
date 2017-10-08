@@ -7,6 +7,7 @@ import AiPredictionsContainer from './AiPredictionsContainer'
 import { Grid } from 'semantic-ui-react'
 import UserInputContainer from './UserInputContainer'
 import WinModal from '../Modals/WinModal'
+import GifContainer from './GifContainer'
 
 class AppContainer extends Component {
 
@@ -103,6 +104,8 @@ class AppContainer extends Component {
             <Grid.Column width={10}>
               < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>
             </Grid.Column>
+            <Grid.Column >
+            </Grid.Column >
           </Grid.Row>
         </Grid>
         </div>
