@@ -104,8 +104,9 @@ class AppContainer extends Component {
             <Grid.Column width={10}>
               < AiPredictionsContainer aiPredictions={this.state.aiPredictions}/>
             </Grid.Column>
-            <Grid.Column >
-            </Grid.Column >
+          </Grid.Row>
+          <Grid.Row>
+              < GifContainer />
           </Grid.Row>
         </Grid>
         </div>
