@@ -23,6 +23,24 @@ class AppContainer extends Component {
     }
   }
 
+  componentWillMount = () => {
+    this.test()
+  }
+
+  headers = () => {
+  return {
+    'content-type': 'application/json',
+    'accept': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  }
+}
+
+  test(){
+    let options = {'Content-type': 'application/json'}
+    fetch('https://codetest.kube.getswift.co/drones',{'mode': 'no-cors'})
+    .then(res => console.log(res))
+  }
+
   handleSubmit = (url) => {
     this.setState({
       url: url,
