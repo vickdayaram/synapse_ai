@@ -8,6 +8,8 @@ import { Grid } from 'semantic-ui-react'
 import UserInputContainer from './UserInputContainer'
 import WinModal from '../Modals/WinModal'
 import GifContainer from './GifContainer'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class AppContainer extends Component {
 
