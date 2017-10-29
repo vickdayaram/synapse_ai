@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-
+import { AiGuesses } from './AiGuesses'
 
 const combinedReducers = combineReducers({
-  topics: []
+  AiGuesses: AiGuesses
 })
 
 export default combinedReducers
